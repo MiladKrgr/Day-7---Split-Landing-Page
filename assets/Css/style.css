@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+    --left-btn-bg-hover-color: rgba(87, 84, 236, 1);
+    --right-btn-bg-hover-color: rgba(28, 122, 28, 1);
+    --hover-width: 70%;
+    --other-width: 30%;
+    --speed: 1000ms;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    font-size: 4rem;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.split.left {
+    background: url('/assets/img/ps.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right {
+    background: url('/assets/img/xbox.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    right: 0;
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
+}
+
+
+.btn {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #fff solid 0.2rem;
+    color: #fff;
+    width: 12rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    text-decoration: none;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.split.left .btn:hover {
+    background-color: var(--left-btn-bg-hover-color);
+    border-color: var(--left-btn-bg-hover-color);
+}
+
+.split.right .btn:hover {
+    background-color: var(--right-btn-bg-hover-color);
+    border-color: var(--right-btn-bg-hover-color);
+}
+
+
+.hover-left .left {
+    width: var(--hover-width);
+}
+
+.hover-left .right {
+    width: var(--other-width);
+}
+
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    width: var(--other-width);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+
+@media (max-width : 800px) {
+    h1 {
+        font-size: 2rem;
+        top: 30%;
+    }
+
+    .btn {
+        width: 10rem;
+        padding: 1.2rem;
+    }
+
+}
