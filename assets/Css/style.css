@@ -43,7 +43,7 @@ h1 {
 }
 
 .split.left {
-    background: url('assets/img/ps.jpg');
+    background: url('../img/ps.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -59,7 +59,7 @@ h1 {
 }
 
 .split.right {
-    background: url('assets/img/xbox.webp');
+    background: url('../img/xbox.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
